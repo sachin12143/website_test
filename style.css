@@ -1,0 +1,609 @@
+/* --- Base Styles --- */
+:root {
+    --primary-yellow: #F4D03F; /* Approximation of the yellow used */
+    --light-gray: #F4F4F4;
+    --dark-black: #000000;
+    --text-gray: #7F7F7F;
+    --white: #FFFFFF;
+    --font-family: 'Poppins', sans-serif; /* A clean, modern font */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #fdfdfd;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-black {
+    background-color: var(--dark-black);
+    color: var(--white);
+}
+
+.btn-black:hover {
+    background-color: #333;
+}
+
+.highlight {
+    background-color: var(--primary-yellow);
+    padding: 0 5px;
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--white);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary-yellow);
+}
+
+.sign-up-btn {
+    padding: 10px 25px;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--dark-black);
+}
+
+/* --- Hero Section --- */
+/* --- Hero Section --- */
+.hero {
+    margin-top: 100px; /* Offset for fixed header */
+    padding: 0 20px;
+}
+
+.hero-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 80px 60px; /* Space around the text */
+    min-height: 580px; /* Gives the image room to breathe */
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: right center; /* Keeps the woman in view on smaller screens */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 50%; /* Keeps text constrained to the left side */
+}
+
+.hero-content h1 {
+    font-size: 68px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.highlight-white {
+    background-color: var(--white);
+    padding: 0 15px;
+    display: inline-block;
+    margin-bottom: 5px; 
+}
+
+.highlight {
+    background-color: var(--primary-yellow);
+    padding: 0 15px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: var(--dark-black);
+    margin-bottom: 35px;
+    font-weight: 500;
+}
+
+/* Star placeholders */
+.star {
+    position: absolute;
+    font-size: 24px;
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.star-1 { top: 10%; left: 10%; }
+.star-2 { top: 30%; right: 15%; }
+.star-3 { bottom: 20%; left: 15%; }
+
+/* --- Brands Section --- */
+.brands {
+    background-color: var(--primary-yellow);
+    padding: 40px 0;
+    margin-top: -20px;
+    position: relative;
+    z-index: 5;
+}
+
+.brands-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.brands-container img {
+    height: 35px; /* Slightly larger to match the design better */
+    object-fit: contain;
+    /* Removed the grayscale filter so brand colors show! */
+}
+
+/* --- Section Titles --- */
+.section-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    display: inline-block;
+}
+
+.title-underline::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 6px;
+    background-color: var(--primary-yellow);
+    border-radius: 3px;
+    margin-top: -8px;
+    margin-left: auto; /* Aligns to right like the image */
+}
+
+/* --- Product Grids (Arrivals and Favourites) --- */
+.product-grid,
+.favourite-grid {
+    display: grid;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.product-grid { grid-template-columns: repeat(3, 1fr); }
+.favourite-grid { grid-template-columns: repeat(2, 1fr); }
+
+.product-card,
+.favourite-card {
+    position: relative;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover,
+.favourite-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.product-image img,
+.favourite-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-details,
+.favourite-details {
+    padding: 20px 0;
+}
+
+.product-details h3,
+.favourite-details h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.product-details p,
+.favourite-details p {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.arrow-icon {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    font-size: 20px;
+    color: var(--text-gray);
+    transition: color 0.3s ease;
+}
+
+.arrow-icon:hover {
+    color: var(--dark-black);
+}
+
+/* Specific heights for grid items to match design */
+.product-image { height: 380px; border-radius: 20px; overflow: hidden; }
+.favourite-image { height: 450px; border-radius: 20px; overflow: hidden; }
+
+/* --- Payday Sale Section --- */
+.payday-sale {
+    background-color: var(--primary-yellow);
+    padding: 60px 0;
+}
+
+.payday-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.payday-image { flex: 1; }
+.payday-content { flex: 1; }
+
+.payday-content h2 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.payday-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+
+.sale-dates { margin-bottom: 30px !important; }
+
+/* --- Download App Section --- */
+.download-app {
+    background-color: white;
+    padding: 100px 0;
+}
+
+.download-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.download-content { flex: 1; }
+.download-image { flex: 1; }
+
+.download-content h2 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.download-content p {
+    font-size: 18px;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+.app-store-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.app-store-buttons img {
+    height: 50px;
+    border-radius: 12px;
+}
+
+/* --- Community Section --- */
+.community {
+    background-color: var(--primary-yellow);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.community-container h2 {
+    color: var(--white);
+    font-size: 36px;
+    font-weight: 800;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.community-container p {
+    color: var(--white);
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.email-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.email-form input {
+    flex: 1;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.email-form .btn {
+    padding: 15px 30px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-black);
+    color: var(--white);
+    padding: 80px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.footer-brand {
+    flex: 1;
+    max-width: 300px;
+}
+
+.footer-brand .logo {
+    margin-bottom: 25px;
+}
+
+.footer-brand p {
+    color: #ababab;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-yellow);
+    color: var(--dark-black);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+.footer-links {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.link-column h4 {
+    font-size: 18px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.link-column ul li {
+    margin-bottom: 15px;
+}
+
+.link-column a {
+    color: #ababab;
+    font-size: 14px;
+}
+
+.link-column a:hover {
+    color: var(--primary-yellow);
+}
+
+/* --- Animation Classes --- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive Media Queries --- */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+    .hero-content h1 { font-size: 48px; }
+    .payday-content h2 { font-size: 42px; }
+    .download-content h2 { font-size: 36px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    /* Header Mobile Menu */
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 80px;
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        padding-top: 50px;
+        box-shadow: -2px 5px 5px rgba(0,0,0,0.05);
+    }
+
+    .nav-links li { opacity: 0; }
+    .menu-toggle { display: block; }
+
+    /* Layout Stacked */
+    .hero-container,
+    .payday-container,
+    .download-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-content, .hero-image,
+    .payday-content, .payday-image,
+    .download-content, .download-image {
+        flex: auto;
+        width: 100%;
+    }
+
+    .hero-content h1, .payday-content h2, .download-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content, .download-content {
+        margin-bottom: 40px;
+    }
+
+    .hero { margin-left: 10px; margin-right: 10px; }
+
+    .app-store-buttons { justify-content: center; flex-wrap: wrap; }
+
+    /* Grids to 1 Column */
+    .product-grid, .favourite-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image, .favourite-image {
+        height: 300px;
+    }
+
+    /* Footer Mobile */
+    .footer-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .link-column {
+        flex: 1 1 40%;
+    }
+
+    .email-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* JavaScript class for active menu */
+.nav-active {
+    transform: translateX(0%);
+}
+
+/* Animation for menu links */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
